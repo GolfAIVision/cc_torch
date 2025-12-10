@@ -26,5 +26,4 @@ exclude = ["tests*"]
 
 [tool.uv]
 index-url = "https://download.pytorch.org/whl/cu128"
-# Fall back to PyPI for packages not in the PyTorch index
 extra-index-url = ["https://pypi.org/simple"]
