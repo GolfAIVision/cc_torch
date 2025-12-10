@@ -1,0 +1,30 @@
+[build-system]
+requires = [
+    "setuptools>=42",
+    "wheel",
+    "torch==2.8.0",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cc_torch"
+version = "0.2"
+description = "Connected Components Labeling for PyTorch"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {file = "LICENSE"}
+
+dependencies = [
+    "torch==2.8.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/zsef123/Connected_components_PyTorch"
+
+[tool.setuptools.packages.find]
+exclude = ["tests*"]
+
+[tool.uv]
+index-url = "https://download.pytorch.org/whl/cu128"
+# Fall back to PyPI for packages not in the PyTorch index
+extra-index-url = ["https://pypi.org/simple"]
