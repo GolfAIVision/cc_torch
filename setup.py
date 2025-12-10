@@ -2,7 +2,6 @@ import os
 import glob
 
 from setuptools import find_packages, setup
-from torch.utils.cpp_extension import BuildExtension, CUDAExtension
 
 
 requirements = ["torch"]
@@ -28,8 +27,13 @@ def find_cuda_home():
     return None
 
 
+# Set CUDA_HOME before importing torch
+find_cuda_home()
+
+from torch.utils.cpp_extension import BuildExtension, CUDAExtension
+
+
 def get_extensions():
-    find_cuda_home()
 
     srcs = ["cc_torch/connected_components.cu"]
     extra_compile_args = {
